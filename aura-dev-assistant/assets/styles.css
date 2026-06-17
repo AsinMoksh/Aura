@@ -1,0 +1,118 @@
+:root {
+  --aura-bg: #07090f;
+  --aura-panel: #101724;
+  --aura-panel-2: #0c111b;
+  --aura-text: #eaf6ff;
+  --aura-muted: #8fa4b8;
+  --aura-cyan: #2de2e6;
+  --aura-green: #77f2a1;
+  --aura-red: #ff6b7a;
+}
+
+.stApp {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(45, 226, 230, 0.16), transparent 28rem),
+    linear-gradient(135deg, #07090f 0%, #0c111b 52%, #08131a 100%);
+  color: var(--aura-text);
+}
+
+[data-testid="stSidebar"] {
+  background: rgba(8, 13, 22, 0.96);
+  border-right: 1px solid rgba(45, 226, 230, 0.16);
+}
+
+.aura-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0 1.4rem;
+  border-bottom: 1px solid rgba(45, 226, 230, 0.18);
+  margin-bottom: 1.5rem;
+}
+
+.aura-header h1 {
+  margin: 0;
+  color: var(--aura-text);
+  font-size: 2.2rem;
+  letter-spacing: 0;
+}
+
+.aura-header p {
+  margin: 0.25rem 0 0;
+  color: var(--aura-muted);
+  font-size: 1rem;
+}
+
+.aura-orbit {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(45, 226, 230, 0.8);
+  box-shadow: 0 0 22px rgba(45, 226, 230, 0.35), inset 0 0 22px rgba(45, 226, 230, 0.22);
+  position: relative;
+}
+
+.aura-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border-radius: 50%;
+  background: var(--aura-cyan);
+  box-shadow: 0 0 24px var(--aura-cyan);
+}
+
+.status-card {
+  min-height: 9.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(45, 226, 230, 0.16);
+  background: rgba(16, 23, 36, 0.72);
+  border-radius: 8px;
+}
+
+.status-card span {
+  color: var(--aura-green);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.status-card h3 {
+  margin: 0.45rem 0;
+  color: var(--aura-text);
+}
+
+.status-card p {
+  color: var(--aura-muted);
+  margin: 0;
+}
+
+.voice-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--aura-muted);
+  min-height: 2.75rem;
+}
+
+.voice-pulse {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--aura-green);
+  box-shadow: 0 0 18px rgba(119, 242, 161, 0.8);
+}
+
+.stChatMessage {
+  border: 1px solid rgba(45, 226, 230, 0.1);
+  background: rgba(16, 23, 36, 0.55);
+  border-radius: 8px;
+}
+
+button[kind="primary"] {
+  background: linear-gradient(90deg, #118a94, #1ba66f);
+  border: 0;
+}
+
+code,
+pre {
+  border-radius: 8px;
+}
