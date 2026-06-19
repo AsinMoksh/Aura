@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_mic_recorder import speech_to_text
 
 from services.gemini_service import GeminiService, GeminiServiceError
 from services.speech_service import (
