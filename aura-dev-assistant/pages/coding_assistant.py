@@ -46,24 +46,27 @@ for message in st.session_state.coding_messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-voice_col, text_col = st.columns([0.25, 0.75], vertical_alignment="center")
-with voice_col:
-    listen = st.button("Start Voice Input", use_container_width=True)
-with text_col:
-    render_voice_indicator(st.session_state.voice_status)
+voice_col, text_col = st.columns([0.25, 0.75])
 
-if listen:
-    try:
-        st.session_state.voice_status = "Listening"
-        with st.spinner("Listening through microphone..."):
-            spoken_text = speech_to_text()
-        st.session_state.voice_status = "Ready"
-        if spoken_text:
-            st.session_state.coding_messages.append({"role": "user", "content": spoken_text})
-            st.rerun()
-    except Exception as exc:
-        st.session_state.voice_status = "Error"
-        st.error(f"Speech recognition failed: {exc}")
+with voice_col:
+    spoken_text = speech_to_text(
+        language="en",
+        use_container_width=True,
+        just_once=True,
+        key="aura_voice"
+    )
+
+with text_col:
+    render_voice_indicator("Ready")
+
+if spoken_text:
+    st.session_state.coding_messages.append(
+        {
+            "role": "user",
+            "content": spoken_text
+        }
+    )
+    st.rerun()
 
 typed_prompt = st.chat_input("Ask Aura to explain, debug, improve, generate, or summarize code...")
 
