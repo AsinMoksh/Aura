@@ -50,11 +50,8 @@ voice_col, text_col = st.columns([0.25, 0.75])
 
 with voice_col:
     spoken_text = speech_to_text(
-        language="en",
-        use_container_width=True,
-        just_once=True,
-        key="aura_voice"
-    )
+    key="aura_voice"
+)
 
 with text_col:
     render_voice_indicator("Ready")
