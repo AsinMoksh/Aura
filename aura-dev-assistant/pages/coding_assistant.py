@@ -56,13 +56,20 @@ with voice_col:
 with text_col:
     render_voice_indicator("Ready")
 
-if spoken_text:
+if "last_voice" not in st.session_state:
+    st.session_state.last_voice = ""
+
+if spoken_text and spoken_text != st.session_state.last_voice:
+
+    st.session_state.last_voice = spoken_text
+
     st.session_state.coding_messages.append(
         {
             "role": "user",
             "content": spoken_text
         }
     )
+
     st.rerun()
 
 typed_prompt = st.chat_input("Ask Aura to explain, debug, improve, generate, or summarize code...")
