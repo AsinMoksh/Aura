@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 
 import edge_tts
-import speech_recognition as sr
+from streamlit_mic_recorder import speech_to_text
 import streamlit as st
 
 
@@ -14,12 +14,7 @@ def init_voice_state() -> None:
         st.session_state.voice_status = "Ready"
 
 
-def speech_to_text(timeout: int = 8, phrase_time_limit: int = 18) -> str:
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        recognizer.adjust_for_ambient_noise(source, duration=0.7)
-        audio = recognizer.listen(source, timeout=timeout, phrase_time_limit=phrase_time_limit)
-    return recognizer.recognize_google(audio)
+
 
 
 def text_to_speech_file(text: str, voice: str = "en-US-AriaNeural") -> Path:
